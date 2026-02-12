@@ -1,4 +1,4 @@
-import { type Locator, type Page } from '@playwright/test';
+import { type Locator, type Page } from "@playwright/test";
 
 export class CustomerRegister {
   private readonly page: Page;
@@ -19,7 +19,7 @@ export class CustomerRegister {
 
   constructor(page: Page) {
     this.page = page;
-    this.registerLink =  page.getByRole('link', { name: 'Register' });
+    this.registerLink = page.getByRole("link", { name: "Register" });
 
     this.firstNameInput = page.locator('input[name="customer.firstName"]');
     this.lastNameInput = page.locator('input[name="customer.lastName"]');
@@ -33,15 +33,15 @@ export class CustomerRegister {
     this.passwordInput = page.locator('input[name="customer.password"]');
     this.repeatedPasswordInput = page.locator('input[name="repeatedPassword"]');
 
-    this.registerButton = page.getByRole('button', { name: 'Register' });
+    this.registerButton = page.getByRole("button", { name: "Register" });
   }
 
   async goto() {
-    await this.page.goto('/');
+    await this.page.goto("/");
     await this.registerLink.click();
-  } 
+  }
 
-  async register(userData:any, password: string) {
+  async register(userData: any, password: string) {
     await this.firstNameInput.fill(userData.firstName);
     await this.lastNameInput.fill(userData.lastName);
     await this.addressInput.fill(userData.address);
@@ -52,7 +52,7 @@ export class CustomerRegister {
     await this.ssnInput.fill(userData.ssn);
     await this.usernameInput.fill(userData.username);
     await this.passwordInput.fill(password);
-    await this.repeatedPasswordInput.fill(password); 
+    await this.repeatedPasswordInput.fill(password);
 
     await this.registerButton.click();
   }

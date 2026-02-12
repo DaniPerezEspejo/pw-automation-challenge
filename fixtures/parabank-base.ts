@@ -1,11 +1,11 @@
-import { test as base } from '@playwright/test';
-import { CustomerRegister } from '../pages/customer-register';
-import { CustomerLogin } from '../pages/customer-login';
-import { LeftMenu } from '../pages/left-menu';
-import { AccountsOverview } from '../pages/accounts-overview';
-import { TransferFunds } from '../pages/transfer-funds';
-import { AccountDetails } from '../pages/account-details';
-import { generateUserData, getPassword } from '../utils/dataGenerator';
+import { test as base } from "@playwright/test";
+import { CustomerRegister } from "../pages/customer-register";
+import { CustomerLogin } from "../pages/customer-login";
+import { LeftMenu } from "../pages/left-menu";
+import { AccountsOverview } from "../pages/accounts-overview";
+import { TransferFunds } from "../pages/transfer-funds";
+import { AccountDetails } from "../pages/account-details";
+import { generateUserData, getPassword } from "../utils/dataGenerator";
 
 type MyFixtures = {
   customerRegister: CustomerRegister;
@@ -45,17 +45,17 @@ export const test = base.extend<MyFixtures>({
 
   registeredUser: async ({ leftMenu, customerRegister }, use) => {
     const randomUser = generateUserData();
-    const effectivePassword = getPassword('PARABANK_PASSWORD');
+    const effectivePassword = getPassword("PARABANK_PASSWORD");
 
     await customerRegister.goto();
     await customerRegister.register(randomUser, effectivePassword);
     await leftMenu.logout();
-    
-    await use({ 
-        username: randomUser.username, 
-        password: effectivePassword 
-      });
-    },
+
+    await use({
+      username: randomUser.username,
+      password: effectivePassword,
+    });
+  },
 });
 
-export { expect } from '@playwright/test';
+export { expect } from "@playwright/test";

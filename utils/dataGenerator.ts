@@ -1,4 +1,4 @@
-import { faker } from '@faker-js/faker';
+import { faker } from "@faker-js/faker";
 
 export const generateUserData = () => {
   return {
@@ -15,6 +15,6 @@ export const generateUserData = () => {
 };
 
 export const getPassword = (password: string): string => {
-  const envPassword = process.env[password];  
+  const envPassword = process.env[password];
   return envPassword ? envPassword : password;
 };

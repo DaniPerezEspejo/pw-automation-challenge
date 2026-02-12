@@ -1,4 +1,4 @@
-import { type Locator, type Page, expect } from '@playwright/test';
+import { type Locator, type Page, expect } from "@playwright/test";
 
 export class TransferFunds {
   private readonly page: Page;
@@ -13,11 +13,11 @@ export class TransferFunds {
     this.amountInput = page.locator('input[name="input"]');
 
     // Using ID locator because both inputs have the same name
-    this.fromSelect = page.locator('#fromAccountId');
-    this.toSelect = page.locator('#toAccountId');
+    this.fromSelect = page.locator("#fromAccountId");
+    this.toSelect = page.locator("#toAccountId");
 
-    this.transferButton = page.getByRole('button', { name: 'Transfer' });
-    this.messageTitle = page.getByRole('heading', { level: 1 });
+    this.transferButton = page.getByRole("button", { name: "Transfer" });
+    this.messageTitle = page.getByRole("heading", { level: 1 });
   }
 
   async transfer(amount: string) {
@@ -32,6 +32,6 @@ export class TransferFunds {
 
   async verifyTransferComplete() {
     await expect(this.messageTitle).toBeVisible();
-    await expect(this.messageTitle).toHaveText('Transfer Complete!');
+    await expect(this.messageTitle).toHaveText("Transfer Complete!");
   }
 }

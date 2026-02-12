@@ -9,7 +9,11 @@
     "pw:dev:headless": "playwright test --config=playwright-dev.config.ts",
     "pw:prod:ui": "playwright test --config=playwright-prod.config.ts --ui",
     "pw:prod:headless": "playwright test --config=playwright-prod.config.ts",
-    "pw:report": "playwright show-report"
+    "pw:report": "playwright show-report",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "prettier": "prettier --write \"**/*.{js,json,md,ts,html}\"",
+    "format": "npm run prettier && npm run lint:fix"
   },
   "repository": {
     "type": "git",
@@ -26,8 +30,15 @@
     "@faker-js/faker": "^10.3.0",
     "@playwright/test": "^1.58.2",
     "@types/node": "^25.2.3",
+    "@typescript-eslint/eslint-plugin": "^8.55.0",
+    "@typescript-eslint/parser": "^8.55.0",
     "dotenv": "^17.2.4",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.5",
     "install": "^0.13.0",
-    "npm": "^11.10.0"
+    "npm": "^11.10.0",
+    "prettier": "^3.8.1",
+    "typescript-eslint": "^8.55.0"
   }
 }

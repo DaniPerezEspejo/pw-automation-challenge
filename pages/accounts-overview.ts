@@ -1,4 +1,4 @@
-import { type Locator, type Page, expect } from '@playwright/test';
+import { type Locator, type Page, expect } from "@playwright/test";
 
 export class AccountsOverview {
   private readonly page: Page;
@@ -10,19 +10,23 @@ export class AccountsOverview {
 
   constructor(page: Page) {
     this.page = page;
-    this.accountsOverviewTitle = page.getByRole('heading', { level: 1 });
-    this.accountsOverviewTable = page.getByRole('table');
-    this.accountsOverviewHeader = this.accountsOverviewTable.locator('th');
-    this.accountDetailsLink = this.accountsOverviewTable.locator('a');
+    this.accountsOverviewTitle = page.getByRole("heading", { level: 1 });
+    this.accountsOverviewTable = page.getByRole("table");
+    this.accountsOverviewHeader = this.accountsOverviewTable.locator("th");
+    this.accountDetailsLink = this.accountsOverviewTable.locator("a");
   }
 
   async verifyAccountsOverviewIsDisplayed() {
     await expect(this.accountsOverviewTitle).toBeVisible();
-    await expect(this.accountsOverviewTitle).toHaveText('Accounts Overview');
-    await expect(this.accountsOverviewHeader).toContainText(['Account', 'Balance*', 'Available Amount']);
+    await expect(this.accountsOverviewTitle).toHaveText("Accounts Overview");
+    await expect(this.accountsOverviewHeader).toContainText([
+      "Account",
+      "Balance*",
+      "Available Amount",
+    ]);
   }
 
-  async gotoAccountDetails(){
+  async gotoAccountDetails() {
     await this.accountDetailsLink.click();
   }
 }
