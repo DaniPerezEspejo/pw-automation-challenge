@@ -21,7 +21,7 @@ jobs:
       run: npx playwright install --with-deps
 
     - name: Run Playwright tests (Dev)
-      run: npx playwright test -c playwright-dev.config.ts
+      run: npx playwright test -c playwright-dev.config.ts --project=chromium
       env:
         PARABANK_PASSWORD: ${{ secrets.PARABANK_PASSWORD }}
 
