@@ -1,0 +1,33 @@
+{
+  "name": "pw-automation-challenge",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "QA Automation challenge - Playwright",
+  "main": "index.js",
+  "scripts": {
+    "pw:dev:ui": "playwright test --config=playwright-dev.config.ts --ui",
+    "pw:dev:headless": "playwright test --config=playwright-dev.config.ts",
+    "pw:prod:ui": "playwright test --config=playwright-prod.config.ts --ui",
+    "pw:prod:headless": "playwright test --config=playwright-prod.config.ts",
+    "pw:report": "playwright show-report"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DaniPerezEspejo/pw-automation-challenge.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DaniPerezEspejo/pw-automation-challenge/issues"
+  },
+  "homepage": "https://github.com/DaniPerezEspejo/pw-automation-challenge#readme",
+  "devDependencies": {
+    "@faker-js/faker": "^10.3.0",
+    "@playwright/test": "^1.58.2",
+    "@types/node": "^25.2.3",
+    "dotenv": "^17.2.4",
+    "install": "^0.13.0",
+    "npm": "^11.10.0"
+  }
+}
