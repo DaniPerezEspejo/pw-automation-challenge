@@ -20,6 +20,11 @@ export class TransferFunds {
     this.messageTitle = page.getByRole("heading", { level: 1 });
   }
 
+  /**
+   * Performs a transfer with a given amount
+   * Desired from and to account left as default for simplicity
+   * @param amount Amount to transfer
+   */
   async transfer(amount: string) {
     await this.amountInput.fill(amount);
 

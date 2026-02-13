@@ -16,6 +16,9 @@ export class AccountsOverview {
     this.accountDetailsLink = this.accountsOverviewTable.locator("a");
   }
 
+  /**
+   * Verifies Accounts overview is displayed. Asserts done in AccountsOverview page so it can be re-used
+   */
   async verifyAccountsOverviewIsDisplayed() {
     await expect(this.accountsOverviewTitle).toBeVisible();
     await expect(this.accountsOverviewTitle).toHaveText("Accounts Overview");

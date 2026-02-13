@@ -22,6 +22,11 @@ export class CustomerLogin {
     await this.page.goto("/");
   }
 
+  /**
+   * Logs in Parabank
+   * @param user Username to log in
+   * @param password Password log in
+   */
   async login(user: string, password: string) {
     await this.usernameInput.fill(user);
     await this.passwordInput.fill(password);

@@ -41,6 +41,11 @@ export class CustomerRegister {
     await this.registerLink.click();
   }
 
+  /**
+   * Registers an user in Parabank. UserData can be extracted as an interface, but left as any for simplicity
+   * @param userData User data needed to log in
+   * @param password Desired password for new user
+   */
   async register(userData: any, password: string) {
     await this.firstNameInput.fill(userData.firstName);
     await this.lastNameInput.fill(userData.lastName);

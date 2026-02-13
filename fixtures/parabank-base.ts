@@ -5,7 +5,7 @@ import { LeftMenu } from "../pages/left-menu";
 import { AccountsOverview } from "../pages/accounts-overview";
 import { TransferFunds } from "../pages/transfer-funds";
 import { AccountDetails } from "../pages/account-details";
-import { generateUserData, getPassword } from "../utils/dataGenerator";
+import { generateUserData, getPassword } from "../utils/parabank-helpers";
 
 type MyFixtures = {
   customerRegister: CustomerRegister;
@@ -43,6 +43,7 @@ export const test = base.extend<MyFixtures>({
     await use(accountDetails);
   },
 
+  // As part of the fixture, when using registeredUser page, a new fresh user will be created for the test
   registeredUser: async ({ leftMenu, customerRegister }, use) => {
     const randomUser = generateUserData();
     const effectivePassword = getPassword("PARABANK_PASSWORD");

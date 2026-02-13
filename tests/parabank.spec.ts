@@ -2,8 +2,10 @@ import { test, expect } from "../fixtures/parabank-base";
 import loginData from "../data/login.json" with { type: "json" };
 import errorMessages from "../data/error-messages.json" with { type: "json" };
 
-test.describe("Parabank challenge - Login flow", () => {
-  test("Login - Invalid user", async ({ customerLogin }) => {
+test.describe("Parabank challenge - Complex scenario flow", () => {
+  test("Login - Invalid user - Simple scenario to test structure", async ({
+    customerLogin,
+  }) => {
     await customerLogin.goto();
     await customerLogin.login(
       loginData.invalidUser.username,
@@ -22,7 +24,7 @@ test.describe("Parabank challenge - Login flow", () => {
     );
   });
 
-  test("Login - Valid user", async ({
+  test("Login - Valid user - Transfer amount and check account details", async ({
     customerLogin,
     accountsOverview,
     registeredUser,
@@ -42,6 +44,8 @@ test.describe("Parabank challenge - Login flow", () => {
 
     await leftMenu.gotoAccountsOverview();
     await accountsOverview.gotoAccountDetails();
+    await accountDetails.verifyTransaction(0, "Debit", "$100.00");
+    await accountDetails.verifyTransaction(1, "Credit", "$100.00");
     await accountDetails.captureAccountState(registeredUser.username);
   });
 });
