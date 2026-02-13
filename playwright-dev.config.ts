@@ -10,6 +10,9 @@ export default defineConfig({
   ...baseConfig,
   use: {
     ...baseConfig.use,
+    // Usually I would left here "on-first-retry", but for pipeline demonstration
+    // I enabled the trace to see GitHub Pages in action
+    trace: "on",
   },
 
   projects: [
